@@ -9,4 +9,7 @@ public class Connection {
 	this.to = to;
 	this.weight = r.nextFloat() * 2 - 1;
     }
+    public float getValueContribution() {
+	return this.weight * this.from.getValue();
+    }
 }

@@ -11,8 +11,12 @@ public class Node {
     public Node(Node[] prevNodes) {
 	for (Node prevNode : prevNodes) {
 	    Connection c = new Connection(prevNode, this);
-	    this.outConnections.add(c);
+	    this.inConnections.add(c);
 	    prevNode.setOutConnection(c);
+	}
+	this.value = 0.0f;
+	for (Connection c : inConnections) {
+	    this.value += c.getValueContribution();
 	}
     }
     public void setOutConnection(Connection c) {
@@ -20,5 +24,8 @@ public class Node {
     }
     public void setValue(float value) {
 	this.value = value;
+    }
+    public float getValue() {
+	return this.value;
     }
 }
