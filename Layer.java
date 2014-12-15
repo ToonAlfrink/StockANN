@@ -12,6 +12,11 @@ public abstract class Layer {
 	    nodes[i] = new Node(prevLayer.getNodes());
 	}
     }
+    protected void propagate() {
+	for (Node n : nodes) {
+	    n.propagate();
+	}
+    }
     public Node[] getNodes() {
 	return this.nodes;
     }
